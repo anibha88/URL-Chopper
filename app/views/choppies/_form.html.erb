@@ -1,0 +1,22 @@
+<%= form_for(@choppy) do |f| %>
+  <% if @choppy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@choppy.errors.count, "error") %> prohibited this choppy from being saved:</h2>
+      <ul>
+      <% @choppy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :actual_url %><br>
+    <%= f.text_area :actual_url, class: 'form-control' %>
+  </div>
+
+  <br />
+  <div class="actions">
+    <%= f.submit "Shorten URL", class: 'btn btn-primary pull-right' %>
+  </div>
+<% end %>

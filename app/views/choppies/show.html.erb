@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h1>Actual URL and Shortened URL </h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong> Actual URL: </strong></dt>
+  <dd><%= link_to @choppy.actual_url, @choppy.actual_url, target: "_blank" %></dd>
+  <dt><strong> Shortened URL: </strong></dt>
+  <dd><%= link_to @base_url+@choppy.shortened_url,  @base_url+@choppy.shortened_url, target: "_blank" %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to 'Back', choppies_path, class: 'btn' %>
+  <%= link_to 'Destroy', choppy_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
+</div>
+

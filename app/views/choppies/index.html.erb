@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>List of actual URL's Versus Shortened URL's</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class='span1'>Used At</th>
+      <th class='span3'>Actual URL</th>
+      <th class='span3'>Shortened URL</th>
+      <th class='span2'>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @choppies.each do |choppy| %>
+      <tr>
+        <td><%= choppy.updated_at.strftime("%H:%M %d/%m/%y") %></td>
+        <td><%= link_to choppy.actual_url, choppy.actual_url, :target => "_blank" %></td>
+        <td><%= link_to @base_url+choppy.shortened_url,  @base_url+choppy.shortened_url, :target => "_blank" %></td>
+        <td>
+          
+          <%= link_to 'Details', choppy, class: 'btn btn-info' %>
+        
+          <%= link_to 'Destroy', choppy, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'New Choppy', new_choppy_path, class: 'btn btn-primary' %>

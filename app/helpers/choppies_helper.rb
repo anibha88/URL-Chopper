@@ -1,0 +1,2 @@
+module ChoppiesHelper
+end
